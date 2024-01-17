@@ -1,0 +1,692 @@
+(1) Basic Linux Commands
+→(1) Pwd:- Pwd stands for print working Directory. It prints the path of the 
+working directory
+Syntax:- [root@localhost ~]# Pwd
+Output:-
+(2) cd: The ed Command can be used to Change the working directory of the 
+working drive or another lettered drive.
+Syntax:- [root@localhost]# cd /home
+Output:-
+(3) ls :- ls is a linux shell command that lists directory Contents of files and 
+directories.
+Syntax:-[root@localhost]# ls
+Output:-
+(4) mkdir: mkdir command in linux allows the user to create directories.
+Syntax:- [root@localhost]# mkdir news
+Output:-
+(5) rmdir:- rmdir Command in linux removes the directory
+Syntax:- [root@localhost] # rmdir new1
+Output:-
+(6) touch:-touch command is used to create empty files.
+Syntax-[root@localhost home]# touch rai. txt.
+Output:
+(7) Cat:-It reads data from the file and gives its Content as output. It helps us 
+to create, view and Concatenate files.
+Syntax:- [root@local host home] Cat > Rais I am Suprotim. I am persuing BCA 
+from BWU^2 [1]+ stopped Cat1) Rai1
+Output:-
+(8) Head and tail:- They allow user to quickly and easily view the beginning or 
+end of a file respectively.
+Syntax:- [root@local host home] # Cat > hm. txt
+Debadrita
+Suprotim
+Swapnanil
+Samiran
+head Syntax: ^2 [3] + stopped Cat 1> hm.txt
+[root@local host home]#head-2 pitha Rints hm.txt
+tail syntax: [root@local host home]# tail -2 hm.txt
+Output:-
+Linux Command for directory management system
+Call. →(1) mkdir: mkdir command is used to create directory.
+Syntax: [root@localhost]# mkdir [dir name]
+Output:
+(3) rmdir: rmdir command in linux removes the directory.
+Syntax: [root@localhost]# rmdir[din name]
+Output:
+(3) mv: In linux my stands for "move". This Command is used to rename file 
+directions and make move files from one location to another
+location.
+(i) Renaming a file or directory:-
+Syntax: [root local host Rimi]# my Rimit Rimi2
+Output:
+(ii) Moving a file: - Syntax[root@localhost Rimi]# mv Rimis. /home/Rimi/ Rimiz
+(4) Cd: This command is used to change directory.
+moving inside a subdirectory Syntax: Cd [directory name] moving to the root 
+directory.
+Syntax: cd/
+Output:
+iii) Programs to show Parent process-Child process relationship.
+→ Program 1
+Code:#include <stdio.h>
+#include <systypes.h>
+#include <syswait.h>
+#include <unistd.h>
+int main(){
+fork();{
+printf("HelloWorld An");
+}
+fork();
+{
+printf ("Hello World");
+}
+return 0;
+}
+Output:
+Program-2
+Code:
+#include <stdio.h>
+#include <stdlib.h>
+#include <systype.h)
+#include <syswait.h)
+#include <unistd.h)
+void childtask() {
+printf ("hello \n");
+}
+void parenttask(){
+printf("world \n");}
+int main (void) {
+b-id-tpid fork(); if (pid==0)
+Child task(); exit (EXIT SUCCESS);
+}
+else if (pid)
+wait (NULL); parenttask();}
+printf ("unable to create a child proces
+else {
+return EXIT-SUCCESS;}
+}
+Output:
+Program-3
+Code:
+#include <stdio.h>
+#include <stdlib.h>
+#include <systypes.h>
+#include <syswait.h>
+#include <unistd.h>
+int main (void)
+{ Pid-t bid fork();
+if (d==0)
+{ printf("Child PPID %d,PID %d\n", get paid () get exit (EXIT.SUCCESS); bid());
+}
+else if (pido)
+printf("parent → PID%d \n", get bid ());
+printf ("waiting for child process to finish"); wait (NULL);
+printf("child process to finish\n");
+}
+else { printf ("unable to create child process");
+}
+return EXIT. SUCCESS
+}
+Output:
+Program to implement interprocess Communication using shared memory.
+→Code:
+#include <stdio.h>
+#include <stdlib.h>
+#include <systypes.h>
+#include <syswait.h>
+#include <unistd.h>
+#include <sys/shm.h)
+int main(){
+int i;
+void shared memory;
+char buff [100];
+int shmid;
+shmid=0;
+Shmget ((rey-+)2345,1024,0666/IPC_CREATE); 
+printf ("key of shared memory is %d\n", shmid);
+shared memory = shmat (shmid, NULL, 0);
+printf("enter some data to write to shared memory);
+read (0, buff, 100);
+Strepy (shared memory, buff);
+printf("you wrote: %s\n", (char *) shared meme ry);
+}
+Output:
+ii) Program to implement Inter process Communication using pipes.
+Code:
+#include <stdio.h>
+#include <stdlib.h)
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+int main(){
+int &d[2], n;
+Char buffer [100];
+bid.t P;
+pipe (d);
+P=fork();
+if (p>0)
+printf("Putting the value of the child \n");
+write (d[], "Hello I'm Shrashtha \n", 18);
+}
+else printf("received the value from the parent \n");
+n = read (fd [10], buffer, 100);
+write (1, buffer,n);
+}
+}
+Output:
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+int main () {
+int fd[2], nbyte;
+pid.t Child p-id;
+Char strings 1= "welcome ";
+Char read buffer [100];
+pipe (Pd);
+if ((child p-id=fork())==-1);\
+printf("fork");
+exit(1);}
+it (Child pid==0)
+Close (fd[0]);
+write(d[1], string, (strlen(string+1)));
+exit (0);}
+else
+Close (d[1]);
+nbyte = read (fd[0], read butter, sizeof (read buffer));
+printf("read string: %s", read buffer);
+return 0;}
+Output:
+Program to implement first come first serve process scheduling algorithm.
+Code: 
+#include <stdio.h>
+int main(){
+int Pid [15];
+int bt [15];
+int n;
+printf ("Enter the number of process:");
+scanf (Ad",&n);
+printf("Enter the processid for all processes:"); for (int i=0;i<n;i++)
+scanf("%d", & pid [i]);
+}
+printf ("Enter the burst time for all process:");
+for (int i=0;i<n; i++)
+scanf("id", & bt [i]);
+}
+int i, ut [n];
+wt[0]=0;
+for (i=1;i<n;i++)
+wt[i]=b+[i-1] + [i-1];
+}
+printf("Process ID burst time waiting time TATM);
+float that = 0.03
+Float tat =0.03
+for (i=0; i<n;i++)
+Print ("%d\t\t", bid [i]);
+Printf("%d\t\tbt[i]); printf("%d\t\t", wt [i]);
+Printf(\t", bt [i]+w+[i]);
+printf("\n");
+tut = wt [i];
++at+= (w+[i]bt+1)
+}
+float att, awt;
+awt = tut/n;
+att=tatin;
+printf("Avg. Waiting = %fin", awt);
+printf("Arg.turnaround time = %f\n"att);
+}
+Output:
+Program to implement shortest Job first Process Scheduling Algorithm.
+Code:
+#include <stdio.h> 
+int main ()
+int bt [60], Prsol, ut [so], tat [so], i, j,n,total = 0;
+total T=0, Pos, temp;
+float arg-wr, Arg-tat;
+printf("Enter the number of process ="); Scanf ("%d",&n);
+printf("Enter the burst time: "); for (i=0;i<n; i++)
+printf("Pld", i+1); SConf("%d",&bt门); P[1]=i+1;
+}for (i=0; i<n; i++)
+POS=i;
+for (j=i+1; j<n;i++)
++(b+[j] <bt [pos])
+Pos=j;}
+temp-bt [i];
+bt [i] = b+ [pos];
+bt [pos] = temp;
+temp = P[I];
+P[i] = P [POS];
+P [Pos] = temp;
+}
+w4[0]=0;
+for (i=1;i<n; i++)
+}
+w4[i]=03
+for(j=0;j<i;i++)
+[i]+b+[i]:
+e+al=re+[2];
+}
+arg-wt (float) total/n;
+printf(in Process It Burst timelt waiting timelt Turn around time);
+for(i=0;i<n; i++)
+tat[]=[+w+[i];
+totalT +=+at[i];
+printf("m Pyd + t %d\t\t %d\t\t% d^{n} p[i],+[]+[], tet [i]);}
+a\cdot g.tat= (float) total T/n;
+Printf( Average waiting time=%arg-ot); psåntin Average turnaround time=%if" 
+arg. tat);
+}
+Output:
+Program to implement Round Robin Process scheduling algorithm
+Code: #include <stdio.h>
+int main(){int n;
+printf("Enter total no of process: ");
+scanf("%d", &n);
+int wait time=0, ta-time=0, arr. time[n]; burst- time [n], temp-burst-time [n];
+int x=n;
+for (int i=0; i<n;i++){
+printf("Enter details of Process %d\n"; i++);
+print(Arrived time:");
+Scanf("%d", & arr-time [i]);
+printf("Burst time:");
+Scanf("%d", & burst time [i]);
+temp-burst-time [i] = burst_temp[i];}
+int time-Slot;
+printf("Enter time slot:");
+scanf("%d", &time-slots);
+int total = 0, Counter=0,1;
+printf("Process ID Bursttime Turn around time waiting time");
+for (int total=0, i=0; x!=0){
+if (temp-burst time [ile = time. slot & & temp.
+total = total + temp-burst time [i];
+burst time [i]>0)
+temp. burst-time [i]=0;
+Counter=1;}
+else if (temp-burst-time []>0){
+temp burst time [i]=temp_burst-time [i]-time slot; total += time-slot;
+}
+if (temp.burst time [i] == 0 & counter == 1) {
+print(in Process No %d\t\t id \t \ i+1, burst-time [i], total. arr time[1], total-arr 
+time time[] burst-time []);
+wait time wait time + total. arr-time [i]-burst-time[i];
+ta-time += total. arr-timer:];
+Counter=0}
+if(i==n-1)
+i=0;}
+else if (arr-time [i+1]<=total){
+i++;}else i=0;}
+}float average, wait time wait-time +1.0m;
+Float average-turn around-time to time 1.0/n;
+printf("In Average waiting time: 1.8" average wait time); printf("m Average 
+Turnaround time 17 average turnreturn 0;}
+around-time);
+Output:
+5)Program to implement pre-emptive priority process scheduling Algorithm.
+#include <stdio.h>
+void ab\binom{6}{in}+C a, int *b)
+int temp = a;
+alpha=-b;
+b=temp;}
+int main (){
+int n;
+printf ("enter the number of Process");
+Scanf (^{u}+d^{4},Rn);
+int [n],P[n]index[n];
+for (int i=0; i<n;i++)
+{
+printf ("enter the burst time and priority value for process %d", i+1);
+scanf("%d%d",&b[i], &P[]);
+index [i]=i+1;
+}
+for (int i=0; i<n; i++)
+in+a=P[i];m=i]
+en(in+j=l;j<n;j+t)
+(P[J]>\alpha)
+a=P[j];
+m=j
+}}
+Swap (8&P[i], &P [m]);
+Swap (&b[i], &b[m]);
+swap(& index[i], & index[m]);
+}
+int +=0;
+printf("order of process executions In"); for (int i=0; i<n; i++)
+}
+printf("Pod is executed from "d to %d \n", index[i] t,t+b[i]);
+++=b[i];
+}
+printf("\n");
+printf("Process id burst time wait time turn around time
+int wait time=0; for (int i=0; i<n; i++)
+{ printf("%d\t%d\t%d\t%d\n", index[i], b[i], wait. time, wait-time+b[i]);
+wait_time+=b[i];
+}
+Return 0;
+}
+Output:
+Program to implement process synchronization using semaphore.
+#include <stdio.h>
+#include<pthread.h
+#include <semaphore.h
+sem-t mutex;
+void thread (void #corg)
+sem.wait (& mutex);
+printf("m enter thread 'n"); sleep (4);
+printf("m exit thread \n");
+Sem-post(mutex);}
+int main ()}
+sem init(& mutex, 0, 1);
+Athread-t+1,+2;
+pthread create (& +1, NULL, thread, NULL); Sleep (2);
+Pthread-Create (2+2, NULL, thread, NULL);
+Pthread-Create (&+2, NULL, thread, NULL);
+Pthread-join (EI, NULL);
+P thread. Join (12, NULL);
+sem-destroy(&mutex);}
+return 0;
+Output:
+Program to implement Producer-Consumer problem using semaphore.
+#include <stdio.h>
+#include <stdlib.h>
+int mutex=1
+int full=0;
+int empty = 10, data=0;\
+void producer()
+mutex;
+++ full;
+--empty;
+data ++;
+printf (um Producer Producer item number: %d\n", dab)
+++ mutex;}
+void Consumer()
+-mutex;
+--full;
+++ empty;
+printf("\n Consumer Consumer item number = %d\n", data);
+data --;
+++ mutex;}
+int main()
+int n,i;
+printf (in 1. Enter 1 for Producer ", "xn 2. Enter 2 for Consumerum 3. Enter 3 
+for exit"); for (ist;i>0;i++)
+printf("\n Enter your choice:");}
+scanf("%d",&n);
+}
+switch (n);
+Case 1; if((mutere==1)&&(empty)=0))
+}
+producer();}
+else
+printf("The buffer is full New data cannot be produced)
+}
+break;
+Case 2: if ((mutex==1) && (full!=0))
+}
+Consumer();}
+else
+printf ("The buffer is empty New data cannot be consumed)}
+break;
+Case 3:
+exit (0);
+break;}}
+Output:
+Program to implement FIFO page replacement algorithm.
+#include <stdio.h>
+int main(){
+int incomingstream[]={1,0,3,5,6,3,4,5,23;
+int page Faults = 0;
+int frames=3;
+int m, n, s, pages;
+pages = sizeof (incoming Stream) / sizeof (incoming stream
+[0]); printf("Incoming It Frame 1 \t Frame 2\t Frame 3");
+int temp [frames];
+for (m=0;m <frames; m++)
+temp [m] =-1;
+}
+for (m=0; m<pages; m++){
+5=0;
+for (n=0;n<frames; n++){
+if (in coming Stream [m] == temp[n]){
+S++;
+page faults--;
+}
+}
+pageFaults ++; if ((Page fault <= frames) && (s==0)){
+temp [m] = incoming stream [m];
+}
+elseif (s==0){
+temp[(PageFaults-1) % frames] = incoming stream [m];
+}
+printf("\n");
+printf("%d\t\t\t", incoming stream [m]);
+for (n=0;n<frames;n++){
+if (temp [n]!=-1)
+printf("%d\t\t\t", temp [n]);
+}
+else {
+printf("\t\t\t");
+}
+}
+}
+printf("In Total Page Faults: \t\%d\n", Page faults);
+return 0;
+Output:
+Program to implement LRU Page replacement algorithm.
+#include <stdio.h>
+#include <limits.h>
+int Calculate (int incoming page, int queuer 7, int ocupied)
+for (int i=0; i<occupied; i++){
+if (incomingpage == queue [i])
+return 1;}
+return 0;}
+void print Frame (int queue [], int occupied) {
+for (int i=0; i<occupied; i++)Print("%d\t\t\t", queue[i]);}
+int main (){
+int n Coming Stream [] = {1,2,3,2,1,5,2,1,6,2,5,6,3,1,33
+int n = sizeof (incomingStream)\sizeof(incoming stream);
+int frames=33
+int queue [n];
+int distance [n];
+int occupied =0;
+Int pagefault=0;
+printf ("Page \t Frame 1'it Frame 24 Frame 3\n");
+for (int i=0; i<n;i++){
+printf("%d:\t\t", incoming stream[i]);if (checklit (incoming stream [1], queue, 
+occupied))
+printf Frame (queue, occupied);}
+else if (occupied <frames)
+queue [occupied] = incoming stream[1]";
+page fault ++;
+occupied ++;
+print frame. (queue, occupied);}
+else 
+int max = INT-MIN;
+int index;
+for (int j=0 ; j<Frames; j++)}
+distance [j]=0;
+for (int k=i-1 ; k>=0; K--){
+++ distance [j];
+if (queue[j] == incoming stream [k])
+break;}
+if (distance [i]>max) {
+max = distance[j];
+index =j ;}}
+queue [index] = in coming Stream[i];
+printf frame (queue, occupied);
+page fault ++;}
+printf(");}
+print("In Page Fault: %d", Page fault); return 0;}
+Output:
+Program to implement Banker's Algorithm.
+→
+#include <stdio.h>
+int main ()
+}
+int nerijk;
+}
+n=5;
+}
+Int r=3
+int allec[5] [] = {0,1},{3,0,03,510,13,52,2,23, \n0,0,3\}
+int max [5] [3]={{.6,33,93,223,180,23,121,23,952
+int avail [3] = 12,323;
+int [n], ans[n], in=0:
+}
+for (k=0;k<n;k+t)\n
+f[k]=0;
+}
+int need [n] [r];
+for (i=0;i<n;i++);
+for (j=0;j<n;j\div+)
+meed [i][j] = max[i][j]-alloc[i][j];
+}
+int y=0
+for(k=0;k<5; k++){
+for (i=0;i<n;i++)\{ i\ne(P[i]==0)\{
+int alpha g=0;
+for (j=0;j<r;j+t)\&
+it (need [i][j]> av)
+ne[ag=I;
+break;
+if (flag=0)
+ans [ind++]=i;
+for (8=0;<; &++)
+avail [4] += alloc[][];
+#[]=13
+}
+}
+printf("The Safe sequence is as follows \n");
+for (i=0;i<n-1; i++)
+printf("Pyd->", ans [i]);
+printf("%d", ans [n-1]);
+return (0);}
+Output:
+13) Program to implement Optimal Page Replacement Algorithm. 
+→ #include <stdio.h>
+#include <limits.n)
+#define MAY-PAGES 100
+#define MAX_REFERENCES 1000
+int find OptimalPage (int pages [], int pageframes[], int start, int end)
+int mes=-1, fassthest = start;
+for (int i=0; i < MAX_PAGES; i++){
+int i;
+for (j= start; j<end; i++){
+if (Pageframes [i] = = pages [J]) {
+if (j> farsthest) {
+farsthest = j;
+hes = i;
+break;
+}
+}
+if (i==end)
+return i;
+}
+}
+return (res == -1)?0: hes;
+}
+int optimal Page Replacement (int pages [], int n, int capacity
+{
+int pageframes [MAX-PAGES];
+}
+int pagefaults=0;
+}
+for (int i=0; i<capacity; i++) {
+}
+Page Frames[i]=-1;
+}
+for (int i=0; i<n;i++){
+}
+int page bages[i];
+}
+int found = 0;
+}
+for (int j=0; j<Capacity; j++){
+}
+if (Page Frames[i] == page)
+}
+found = 1;
+}
+break;
+}
+}
+if (1 found)
+int index = find Optimal Page (rages, pageframes)
+page frames [index]=page;
+Page Faults++;
+}
+}
+return pagefaults;
+}
+int main(){
+int pages [MAX-REFERENCES];
+int n, Capacity;
+printf ("enter the number of page references:");
+scanf("%d",&n);
+printf("enter the page reference sequence:"); for (int i=0; i<n; i++){
+scanf("%d", & pages[i]);
+}
+printf("enter the number of page frames: "); scanf("%d", & capacity);
+int page faults = optimal Page Replacement (pages, n, printf("total page faults 
+using Optimal page Replacement: %d\n", page Faults);
+Capacity);
+return 0;
+}
+Output:
+14) Program to implement Dining Philosopher problem.
+#include <stdio.h>
+#include <pthread.h>
+#include <semaphore.h>
+#define N
+#define THINKING
+#define HUNGRY 
+#define EATING 
+#define LEFT (num of Philosopher + 4). N
+#define RIGHT (num_of_philosopher + 1) %. N
+int state [N];
+int phil [N] = 20,1,2,3,43;
+Sem-t mute;
+sem-ts[N];
+void test (int num-of-philosopher)
+if (state [num of philosopher] == HUNGRY & & State [LEFT] != EATING && State 
+[RIGHT] != EATING)
+State [num-of-philosopher] = EATING;
+Sleep (2);
+printf("Philosopher %d takes fork %d and %d \n", num. of_philosopher +1, 
+LEFT+1, num-of-philosopher + 1);
+printf ("Philosopher %d is Eating In" num. of philosopher+ زاد
+sem-post (25 [num_of_philosopher]);
+}
+void take-fork (int num-of-philosopher)
+}
+Sem-wait (& mutex);
+State [num. of philosopher] = HUNGRY;
+printf ("Philosopher *d is HUNGRYM"), num.of. philo- Sopher+1);
+test (num. of philosopher);
+Sem-post (& mutex);
+sem-wait (RS[num-of-philosopher]);
+Sleep (1);
+}
+void put-fore (int num of philosopher)
+sem-wait(&mutex);
+state [num of philosopher] = THINKING;
+printf("Philosophernd putting fork Ad and %d docen in nam-of philosopher + 
+1, LEFT+1, num of philosopher +1);
+printf ("Philosopher vid is thinking \n"), num of philosopher +1);
+test (LEFT);
+test (RIGHT);
+sem post (& mutex);
+}
+void philosopher (void*num)
+while (1)
+int i = num;
+Sleep (2);
+take-fork (i);
+sleep (0);
+put-foru (i);
+int main;
+}
+}
+int i;
+pthread_t thread_id [N];
+Sem.init(& mutex, 0, 1);
+for (i=0; i<N;i++)
+Sem. init (RS[i],0,0);
+for (i=0; i<n; i++){
+pthread-create(&thread_id[i], NULL, philosopher, &phil[]) printf ("Philosopher 
+Ad is thinking \n", i+1);
+}
+for (i=0; i<n; i++)
+pthread-join (thread_id [i], NULL);
+}
+}
+Output
